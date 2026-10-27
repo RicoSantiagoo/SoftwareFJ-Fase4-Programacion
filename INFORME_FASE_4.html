@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe Fase 4 - Componente Práctico - Software FJ</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 2.54cm;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px 60px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+        .portada {
+            text-align: center;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+        }
+        .portada h1 {
+            color: #003366;
+            font-size: 20pt;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .portada h2 {
+            color: #005588;
+            font-size: 15pt;
+            margin-top: 5px;
+        }
+        .portada h3 {
+            color: #444;
+            font-size: 13pt;
+            font-weight: normal;
+        }
+        .meta-box {
+            background-color: #f0f4f8;
+            border-left: 4px solid #005588;
+            padding: 15px 20px;
+            margin: 30px 0;
+            text-align: left;
+            border-radius: 4px;
+        }
+        h2.seccion {
+            color: #003366;
+            border-bottom: 1.5px solid #eaeaea;
+            padding-bottom: 8px;
+            margin-top: 35px;
+        }
+        h3.subseccion {
+            color: #005588;
+            margin-top: 25px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 10pt;
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 10px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #003366;
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        .badge-val {
+            background-color: #dcfce7;
+            color: #166534;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 8.5pt;
+        }
+        .badge-inv {
+            background-color: #fee2e2;
+            color: #991b1b;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 8.5pt;
+        }
+        code, pre {
+            background-color: #f1f5f9;
+            color: #0f172a;
+            font-family: 'Consolas', 'Courier New', monospace;
+            border-radius: 4px;
+        }
+        pre {
+            padding: 15px;
+            overflow-x: auto;
+            border-left: 4px solid #3b82f6;
+            font-size: 9pt;
+        }
+        .btn-imprimir {
+            display: block;
+            margin: 0 auto 20px auto;
+            padding: 12px 24px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 11pt;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .btn-imprimir:hover {
+            background-color: #005588;
+        }
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+            .btn-imprimir {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="btn-imprimir" onclick="window.print()">🖨️ Imprimir o Guardar como PDF</button>
+
+    <div class="container">
+        <div class="portada">
+            <h1>Universidad Nacional Abierta y a Distancia — UNAD</h1>
+            <h2>Escuela de Ciencias Básicas, Tecnología e Ingeniería (ECBTI)</h2>
+            <h3>Programa de Ingeniería de Sistemas | Curso: Programación (Código: 213023)</h3>
+            <br>
+            <h1 style="color: #d97706; font-size: 22pt;">Fase 4 — Componente Práctico (Prácticas Simuladas)</h1>
+            <h2>Sistema Integral de Gestión de Clientes, Servicios y Reservas (Software FJ)</h2>
+
+            <div class="meta-box">
+                <strong>Equipo Colaborativo — Grupo 213023_XX:</strong><br>
+                • Estudiante 1: Arquitecto de Software & Manejo de Excepciones<br>
+                • Estudiante 2: Diseñador de Entidad Cliente & Encapsulación<br>
+                • Estudiante 3: Desarrollador de Servicios & Polimorfismo<br>
+                • Estudiante 4: Desarrollador de Reservas & Orquestador en Memoria<br>
+                • Estudiante 5: Ingeniero de Calidad (QA) & Auditoría<br><br>
+                <strong>Tutor Académico:</strong> Docente Asignado ECBTI<br>
+                <strong>Fecha:</strong> Octubre de 2026 | Colombia
+            </div>
+        </div>
+
+        <h2 class="seccion">1. INTRODUCCIÓN</h2>
+        <p>
+            En el ejercicio de la ingeniería de software moderna, la construcción de soluciones computacionales no solo demanda la satisfacción funcional de los requerimientos de negocio, sino también la garantía de atributos de calidad no funcionales indispensables, tales como la tolerancia a fallos, la alta cohesión, el bajo acoplamiento y la extensibilidad arquitectónica. En el marco del componente práctico del curso de Programación de la Universidad Nacional Abierta y a Distancia (UNAD), he asumido el reto de concebir, diseñar e implementar una solución robusta y orientada a objetos para la empresa tecnológica <strong>Software FJ</strong>, dedicada a la comercialización de reservas de salas corporativas, alquiler de hardware especializado y asesorías especializadas de consultoría informática.
+        </p>
+        <p>
+            A lo largo de este proyecto, he integrado de forma rigurosa los cuatro pilares fundamentales de la Programación Orientada a Objetos (POO): abstracción, encapsulación, herencia y polimorfismo. Asimismo, he implementado una arquitectura de manejo avanzado de excepciones orientada al dominio, sustentada en una jerarquía de excepciones personalizadas, el uso deliberado de las estructuras sintácticas <code>try/except</code>, <code>try/except/else</code>, <code>try/except/finally</code> y el encadenamiento explícito de excepciones (<code>raise ... from ...</code>).
+        </p>
+        <p>
+            Un lineamiento estricto de esta práctica radica en que la aplicación opera completamente en memoria mediante listas nativas, sin recurrir a motores de bases de datos relacionales ni NoSQL. Toda la trazabilidad y auditoría de eventos y errores graves se registra de manera persistente en un archivo de bitácora (<code>software_fj.log</code>), asegurando que, aun ante entradas anómalas o condiciones críticas de carrera, el sistema continúe su flujo operativo de manera ininterrumpida y profesional.
+        </p>
+
+        <h2 class="seccion">2. ENLACE DEL REPOSITORIO EN GITHUB</h2>
+        <p>Para evidenciar el trabajo colaborativo, el control de versiones y el uso profesional de GitFlow, he configurado el repositorio oficial:</p>
+        <div class="meta-box">
+            <strong>URL del Repositorio:</strong> <a href="https://github.com/usuario-unad/SoftwareFJ-Fase4-Programacion" target="_blank">https://github.com/usuario-unad/SoftwareFJ-Fase4-Programacion</a><br>
+            <em>(Ramas disponibles: main, develop, y 5 feature branches correspondientes a cada integrante)</em>
+        </div>
+
+        <h2 class="seccion">3. OBJETIVOS DEL PROYECTO</h2>
+        <h3 class="subseccion">3.1 Objetivo General</h3>
+        <p>Desarrollar una aplicación orientada a objetos integral, modular y tolerante a fallos para la empresa Software FJ en lenguaje Python, implementando abstracción, herencia, polimorfismo, encapsulación rigurosa y manejo avanzado de excepciones con registro persistente de auditoría en archivo de logs, garantizando la continuidad operativa del sistema en un entorno sin bases de datos.</p>
+
+        <h3 class="subseccion">3.2 Objetivos Específicos</h3>
+        <ul>
+            <li>Diseñar una jerarquía taxonómica de clases basada en la entidad abstracta general <code>EntidadSistema</code> y el contrato de servicios <code>Servicio</code>.</li>
+            <li>Aplicar encapsulación estricta en el modelo <code>Cliente</code> con decoradores <code>@property</code> y validaciones regex.</li>
+            <li>Construir una taxonomía de 11 excepciones personalizadas derivadas de <code>SoftwareFJError</code> con encadenamiento causal <code>raise ... from ...</code>.</li>
+            <li>Implementar el orquestador <code>SistemaGestionFJ</code> basado en listas internas en memoria sin bases de datos.</li>
+            <li>Ejecutar 12 simulaciones operativas y 14 pruebas unitarias con <code>unittest</code> validando resiliencia y auditoría en <code>software_fj.log</code>.</li>
+        </ul>
+
+        <h2 class="seccion">4. BITÁCORA DE LAS 12 SIMULACIONES OPERATIVAS</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 8%;">Sim.</th>
+                    <th style="width: 12%;">Tipo</th>
+                    <th style="width: 40%;">Escenario Evaluado</th>
+                    <th style="width: 40%;">Comportamiento del Sistema y Control</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>#01</strong></td>
+                    <td><span class="badge-val">VÁLIDA</span></td>
+                    <td>Registro de clientes válidos (Estándar y VIP).</td>
+                    <td>Registrados exitosamente en la lista en memoria. Log <code>INFO</code>.</td>
+                </tr>
+                <tr>
+                    <td><strong>#02</strong></td>
+                    <td><span class="badge-inv">INVÁLIDA</span></td>
+                    <td>Registro con correo malformado sin arroba.</td>
+                    <td>Captura <code>ClienteInvalidoError</code>. Sistema no colapsa.</td>
+                </tr>
+                <tr>
+                    <td><strong>#03</strong></td>
+                    <td><span class="badge-inv">INVÁLIDA</span></td>
+                    <td>Registro con teléfono de 5 dígitos (requiere 10).</td>
+                    <td>Captura <code>ClienteInvalidoError</code>. Rechaza registro.</td>
+                </tr>
+                <tr>
+                    <td><strong>#04</strong></td>
+                    <td><span class="badge-inv">INVÁLIDA</span></td>
+                    <td>Violación de regla de unicidad (ID duplicado CLI-1001).</td>
+                    <td>Captura <code>ValidacionError</code>. Se preserva lista previa.</td>
+                </tr>
+                <tr>
+                    <td><strong>#05</strong></td>
+                    <td><span class="badge-val">VÁLIDA</span></td>
+                    <td>Catálogo de los 3 servicios especializados.</td>
+                    <td>Instanciación polimórfica (Sala, Alquiler, Asesoría).</td>
+                </tr>
+                <tr>
+                    <td><strong>#06</strong></td>
+                    <td><span class="badge-inv">INVÁLIDA</span></td>
+                    <td>Creación de servicio con tarifa base negativa (-$50,000).</td>
+                    <td>Captura <code>ServicioInvalidoError</code> en constructor.</td>
+                </tr>
+                <tr>
+                    <td><strong>#07</strong></td>
+                    <td><span class="badge-val">VÁLIDA</span></td>
+                    <td>Reserva de Sala aplicando cálculo sobrecargado con descuento VIP e IVA.</td>
+                    <td>Liquidación exitosa. Costo total: $753,567.50 COP.</td>
+                </tr>
+                <tr>
+                    <td><strong>#08</strong></td>
+                    <td><span class="badge-val">VÁLIDA</span></td>
+                    <td>Reserva de Servidor GPU por 5 días con seguro diario.</td>
+                    <td>Liquidación exitosa. Costo total: $2,350,250.00 COP.</td>
+                </tr>
+                <tr>
+                    <td><strong>#09</strong></td>
+                    <td><span class="badge-val">VÁLIDA</span></td>
+                    <td>Reserva de Asesoría Master por 8 horas con recargo urgente.</td>
+                    <td>Liquidación exitosa. Costo total: $5,569,200.00 COP.</td>
+                </tr>
+                <tr>
+                    <td><strong>#10</strong></td>
+                    <td><span class="badge-inv">INVÁLIDA</span></td>
+                    <td>Intento de reserva sobre servicio deshabilitado en catálogo.</td>
+                    <td>Captura <code>OperacionNoPermitidaError</code> encadenada a <code>ServicioNoDisponibleError</code>.</td>
+                </tr>
+                <tr>
+                    <td><strong>#11</strong></td>
+                    <td><span class="badge-inv">INVÁLIDA</span></td>
+                    <td>Reserva solicitando 50 asistentes (aforo máximo sala: 15).</td>
+                    <td>Captura <code>OperacionNoPermitidaError</code> encadenando <code>CapacidadExcedidaError</code>.</td>
+                </tr>
+                <tr>
+                    <td><strong>#12</strong></td>
+                    <td><span class="badge-inv">INVÁLIDA</span></td>
+                    <td>Cancelación reiterada sobre reserva ya cancelada.</td>
+                    <td>Captura <code>EstadoReservaInvalidoError</code> con bloque <code>try/finally</code>.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="seccion">5. RESULTADOS DE PRUEBAS UNITARIAS AUTOMATIZADAS</h2>
+        <pre><code>Ran 14 tests in 0.017s
+
+OK - (14 de 14 pruebas superadas satisfactoriamente)</code></pre>
+
+        <h2 class="seccion">6. CONCLUSIONES</h2>
+        <ol>
+            <li><strong>Robustez mediante Manejo Estructurado de Excepciones:</strong> He comprobado que la implementación de una taxonomía de excepciones personalizadas, en conjunción con los bloques <code>try/except/else/finally</code> y el encadenamiento explícito (<code>raise ... from ...</code>), eleva drásticamente la resiliencia del software ante anomalías.</li>
+            <li><strong>Potencia de la POO:</strong> La sinergia entre abstracción y polimorfismo facilita la extensión del portafolio comercial sin alterar el orquestador ni los flujos de contratación existentes.</li>
+            <li><strong>Encapsulación Rigurosa:</strong> La verificación defensiva mediante decoradores <code>@property</code> y expresiones regulares resguarda la consistencia del estado del cliente desde su instanciación.</li>
+            <li><strong>Auditoría Persistente sin Base de Datos:</strong> Se demostró que un sistema puede operar con absoluta confiabilidad en memoria sustentando su trazabilidad forense en archivos de log estructurados (<code>software_fj.log</code>).</li>
+            <li><strong>Cultura Colaborativa en Git:</strong> La articulación del proyecto bajo GitFlow con ramas asignadas por estudiante y pull requests documentados garantiza el rigor metodológico de la ingeniería de software moderna.</li>
+        </ol>
+
+        <h2 class="seccion">7. REFERENCIAS BIBLIOGRÁFICAS (NORMAS APA 7.ª EDICIÓN)</h2>
+        <ul>
+            <li>Cuevas Álvarez, A. (2016). <em>Python 3: curso práctico</em> (1.ª ed.). RA-MA Editorial. https://elibro-net.bibliotecavirtual.unad.edu.co/es/ereader/unad/106404?page=373</li>
+            <li>Fabrizio Romano, Baka, B., & Phillips, D. (2019). <em>Getting Started with Python: Understand Key Data Structures and Use Python in Object-Oriented Programming</em> (2.ª ed.). Packt Publishing. https://research-ebsco-com.bibliotecavirtual.unad.edu.co/linkprocessor/plink?id=b41fd66a-1134-3dcd-8dba-90f36451f08d</li>
+            <li>Silva, F. D. (2025). <em>Basics of using GitHub</em> [Objeto Virtual de Información OVI]. Repositorio Institucional UNAD. https://repository.unad.edu.co/handle/10596/75882</li>
+            <li>Van Rossum, G., & Drake Jr, F. L. (2024). <em>El tutorial de Python</em>. Python Software Foundation. https://docs.python.org/es/3.12/tutorial/errors.html</li>
+            <li>Zambrano, J. P. (2025). <em>Introducción al uso de GitHub</em> [Objeto Virtual de Información OVI]. Repositorio Institucional UNAD. https://repository.unad.edu.co/handle/10596/75876</li>
+        </ul>
+    </div>
+</body>
+</html>
