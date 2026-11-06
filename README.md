@@ -65,7 +65,7 @@ Estimados compañeros, sigan estos pasos para integrar sus módulos en GitHub:
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone https://github.com/oNSantinho/SoftwareFJ-Fase4-Programacion.git
+   git clone https://github.com/RicoSantiagoo/SoftwareFJ-Fase4-Programacion.git
    cd SoftwareFJ-Fase4-Programacion
    ```
 
