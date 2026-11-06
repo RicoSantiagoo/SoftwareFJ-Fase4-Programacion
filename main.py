@@ -1,129 +1,100 @@
 """
-Sistema Integral de Gestión de Clientes, Servicios y Reservas — Software FJ S.A.S.
-Universidad Nacional Abierta y a Distancia (UNAD)
-Curso: Programación (Código: 213023) — Fase 4: Componente Práctico (Prácticas Simuladas)
-
-Módulo 1 y 2: Arquitectura Base, Jerarquía de Excepciones y Gestión de Clientes
-Desarrollador: Santiago Rico Hernández (Líder de Repositorio)
+Programa principal de prueba - Módulo Clientes y Excepciones
+Estudiante: Santiago Rico Hernández
+Curso: Programación (213023) - UNAD - Fase 4
 """
-import sys
-from src.utils.logger import logger_sistema as logger
+
+from src.utils.logger import logger_sistema
 from src.models.cliente import Cliente
-from src.exceptions.custom_exceptions import ClienteInvalidoError, SoftwareFJError
+from src.exceptions.custom_exceptions import ClienteInvalidoError
 
 
-def encabezado():
-    print("=" * 80)
-    print("      SOFTWARE FJ S.A.S. — GESTIÓN CORPORATIVA DE SERVICIOS Y CLIENTES")
-    print("          UNAD | CURSO DE PROGRAMACIÓN (213023) | FASE 4 - PRÁCTICAS")
-    print("      Módulo: Arquitectura Base, Excepciones y Clientes (Encapsulación)")
-    print("      Desarrollador: Santiago Rico Hernández")
-    print("=" * 80)
-    print()
+def main():
+    print("====================================================")
+    print("      SOFTWARE FJ - FASE 4: PRÁCTICAS SIMULADAS     ")
+    print("      Aporte: Módulo Clientes y Excepciones         ")
+    print("      Estudiante: Santiago Rico Hernández           ")
+    print("====================================================\n")
 
+    logger_sistema.info("Iniciando pruebas del módulo de clientes...")
 
-def simular_modulo_clientes():
-    """Ejecuta una serie de casos de prueba controlados para demostrar el funcionamiento del módulo."""
-    logger.info("=== Inicio de simulación del Módulo de Clientes — Santiago Rico Hernández ===")
-
-    # 1. Registro exitoso de cliente estándar
-    print(">>> Caso 1 [VÁLIDO]: Registro de Cliente Estándar con datos correctos")
+    # 1. Crear un cliente válido
+    print("1. Creando un cliente con datos válidos...")
     try:
-        cliente_1 = Cliente(
+        cliente1 = Cliente(
             id_cliente="CLI-101",
             nombre="Laura Camila Benavides",
-            correo="laura.benavides@techcorp.com",
+            correo="laura.benavides@empresa.com",
             telefono="3101234567",
-            es_frecuente=False,
+            es_frecuente=False
         )
     except ClienteInvalidoError as error:
-        logger.error(f"Error inesperado al crear cliente válido: {error}")
-        print(f"  [ERROR] {error}")
+        print(f"   [Error]: {error}")
     else:
-        logger.info(f"Cliente registrado con éxito: {cliente_1}")
-        print(f"  [+] ÉXITO: {cliente_1}")
+        logger_sistema.info(f"Cliente registrado con éxito: {cliente1.nombre}")
+        print(f"   [OK] Cliente creado: {cliente1}")
     finally:
-        print("  [*] Verificación de flujo completada (finally ejecutado).\n")
+        print("   -> Fin intento de registro 1.\n")
 
-    # 2. Registro exitoso de cliente frecuente / VIP
-    print(">>> Caso 2 [VÁLIDO]: Registro de Cliente Frecuente (VIP)")
+    # 2. Crear cliente frecuente (VIP)
+    print("2. Creando un cliente frecuente (VIP)...")
     try:
-        cliente_2 = Cliente(
+        cliente2 = Cliente(
             id_cliente="CLI-102",
             nombre="Santiago Rico Hernández",
             correo="santiagorico413@gmail.com",
             telefono="3009876543",
-            es_frecuente=True,
+            es_frecuente=True
         )
     except ClienteInvalidoError as error:
-        logger.error(f"Error inesperado: {error}")
-        print(f"  [ERROR] {error}")
+        print(f"   [Error]: {error}")
     else:
-        logger.info(f"Cliente VIP registrado con éxito: {cliente_2}")
-        print(f"  [+] ÉXITO: {cliente_2}")
+        logger_sistema.info(f"Cliente VIP registrado: {cliente2.nombre}")
+        print(f"   [OK] Cliente VIP creado: {cliente2}")
     finally:
-        print("  [*] Registro en bitácora software_fj.log completado.\n")
+        print("   -> Fin intento de registro 2.\n")
 
-    # 3. Caso Inválido: Correo con formato erróneo
-    print(">>> Caso 3 [INVÁLIDO - CONTROLADO]: Validación estricta de correo electrónico (RFC 5322)")
+    # 3. Probar validación con correo inválido
+    print("3. Probando validación con un correo sin formato correcto...")
     try:
-        print("  [*] Intentando registrar cliente con correo: 'correo_invalido_sin_arroba'...")
-        Cliente(
-            id_cliente="CLI-103",
-            nombre="Pedro Pablo Perez",
-            correo="correo_invalido_sin_arroba",
-            telefono="3150001122",
-        )
-    except ClienteInvalidoError as err:
-        logger.warning(f"Excepción controlada capturada: {err}")
-        print(f"  [OK - EXCEPCIÓN CONTROLADA] Tipo: {err.__class__.__name__}")
-        print(f"      Mensaje: {err}")
-        print("      Estado del sistema: ESTABLE y en ejecución.")
-    else:
-        print("  [FALLO] No se detectó el error de correo.")
+        print("   Intentando registrar con correo: 'correo_sin_arroba'...")
+        Cliente("CLI-103", "Pedro Perez", "correo_sin_arroba", "3150001122")
+    except ClienteInvalidoError as error:
+        logger_sistema.warning(f"Excepción capturada correctamente: {error}")
+        print(f"   [OK - Excepción atrapada]: {error}")
+        print("   -> El sistema sigue funcionando con normalidad.")
     finally:
-        print("  [*] Bloque finally: Evento de validación registrado.\n")
+        print("   -> Fin intento de registro 3.\n")
 
-    # 4. Caso Inválido: Teléfono que no cumple 10 dígitos numéricos
-    print(">>> Caso 4 [INVÁLIDO - CONTROLADO]: Validación estricta de longitud telefónica (10 dígitos)")
+    # 4. Probar validación con teléfono que no tiene 10 dígitos
+    print("4. Probando validación con un teléfono incompleto...")
     try:
-        print("  [*] Intentando registrar cliente con teléfono incompleto: '12345'...")
-        Cliente(
-            id_cliente="CLI-104",
-            nombre="Mariana Gomez",
-            correo="mariana@empresa.com",
-            telefono="12345",  # Longitud inválida
-        )
-    except ClienteInvalidoError as err:
-        logger.warning(f"Excepción controlada capturada: {err}")
-        print(f"  [OK - EXCEPCIÓN CONTROLADA] Tipo: {err.__class__.__name__}")
-        print(f"      Mensaje: {err}")
-        print("      Estado del sistema: ESTABLE y en ejecución.")
-    else:
-        print("  [FALLO] No se detectó el error de teléfono.")
+        print("   Intentando registrar con teléfono: '12345'...")
+        Cliente("CLI-104", "Mariana Gomez", "mariana@gmail.com", "12345")
+    except ClienteInvalidoError as error:
+        logger_sistema.warning(f"Excepción capturada correctamente: {error}")
+        print(f"   [OK - Excepción atrapada]: {error}")
+        print("   -> El sistema sigue funcionando con normalidad.")
     finally:
-        print("  [*] Bloque finally: Evento de validación registrado.\n")
+        print("   -> Fin intento de registro 4.\n")
 
-    # 5. Encapsulación y modificación mediante Setters
-    print(">>> Caso 5 [VÁLIDO]: Prueba de encapsulación (@property y @setter)")
-    print(f"  [*] Teléfono original de {cliente_1.nombre}: {cliente_1.telefono}")
-    cliente_1.telefono = "3209998877"
-    cliente_1.es_frecuente = True
-    print(f"  [+] Teléfono actualizado por setter: {cliente_1.telefono}")
-    print(f"  [+] Nuevo estado de fidelización: {'VIP' if cliente_1.es_frecuente else 'Estándar'}")
-    print(f"  [+] Diccionario serializado: {cliente_1.a_diccionario()}\n")
+    # 5. Probar getters, setters y exportar a diccionario
+    print("5. Probando encapsulación (@property y @setter)...")
+    print(f"   Teléfono inicial de {cliente1.nombre}: {cliente1.telefono}")
+    cliente1.telefono = "3209998877"
+    cliente1.es_frecuente = True
+    print(f"   Nuevo teléfono (actualizado con setter): {cliente1.telefono}")
+    print(f"   Datos exportados a diccionario: {cliente1.a_diccionario()}\n")
 
-    print("=" * 80)
-    print("ESTADO DEL PROYECTO COLABORATIVO — FASE 4:")
-    print("  [✓] Módulo 1: Arquitectura Base y Excepciones (Completado - Santiago Rico)")
-    print("  [✓] Módulo 2: Modelo Cliente y Encapsulación (Completado - Santiago Rico)")
-    print("  [ ] Módulo 3: Catálogo de Servicios y Polimorfismo (Pendiente - Integrante 2)")
-    print("  [ ] Módulo 4: Máquina de Estados de Reservas (Pendiente - Integrante 3)")
-    print("  [ ] Módulo 5: Orquestador en Memoria sin Base de Datos (Pendiente - Integrante 4)")
-    print("  [ ] Módulo 6: Pruebas Unitarias Integradas y Simulaciones QA (Pendiente - Integrante 5)")
-    print("=" * 80)
+    print("====================================================")
+    print("Estado del grupo colaborativo:")
+    print("  [X] Módulo 1 y 2: Base, Excepciones y Clientes (Hecho por Santiago Rico)")
+    print("  [ ] Módulo 3: Servicios y Polimorfismo (Pendiente compañero 2)")
+    print("  [ ] Módulo 4: Reservas y Estados (Pendiente compañero 3)")
+    print("  [ ] Módulo 5: Orquestador en memoria (Pendiente compañero 4)")
+    print("  [ ] Módulo 6: Pruebas globales y simulaciones (Pendiente compañero 5)")
+    print("====================================================")
 
 
 if __name__ == "__main__":
-    encabezado()
-    simular_modulo_clientes()
+    main()

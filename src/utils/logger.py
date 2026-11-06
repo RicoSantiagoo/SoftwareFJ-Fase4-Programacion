@@ -1,45 +1,42 @@
 """
-Módulo de Configuración de Logging para Software FJ.
-Configura manejadores de archivo y consola con codificación UTF-8 y formatos homogéneos.
+Configuración de Logger para Software FJ
+Guarda eventos y errores en 'software_fj.log' y los muestra por consola.
+Estudiante: Santiago Rico Hernández - UNAD
 """
 
 import logging
 import os
-from typing import Optional
 
-LOG_FILE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "software_fj.log")
+# Ruta donde se crea el archivo de log en la raíz del proyecto
+LOG_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "software_fj.log")
+LOG_FILE_PATH = LOG_PATH
 
 
-def configurar_logger(nombre_logger: str = "SoftwareFJ", nivel: int = logging.INFO) -> logging.Logger:
-    """
-    Configura y retorna una instancia de logger configurada con:
-    1. FileHandler hacia 'software_fj.log' con codificación UTF-8.
-    2. StreamHandler hacia la consola estándar.
-    """
-    logger = logging.getLogger(nombre_logger)
-    logger.setLevel(nivel)
+def configurar_logger(nombre: str = "SoftwareFJ") -> logging.Logger:
+    logger = logging.getLogger(nombre)
+    logger.setLevel(logging.INFO)
 
-    # Evitar duplicar manejadores si la función se invoca múltiples veces
     if not logger.handlers:
+        # Formato de fecha y mensaje para el log
         formato = logging.Formatter(
-            fmt="%(asctime)s [%(levelname)s] [%(name)s:%(module)s:%(lineno)d] - %(message)s",
+            fmt="%(asctime)s [%(levelname)s] - %(message)s",
             datefmt="%Y-%m-%d %H:%M:%S"
         )
 
-        # Manejador de archivo UTF-8
-        file_handler = logging.FileHandler(LOG_FILE_PATH, mode="a", encoding="utf-8")
-        file_handler.setLevel(nivel)
-        file_handler.setFormatter(formato)
-        logger.addHandler(file_handler)
+        # Guarda en archivo con codificación utf-8
+        archivo_handler = logging.FileHandler(LOG_PATH, mode="a", encoding="utf-8")
+        archivo_handler.setLevel(logging.INFO)
+        archivo_handler.setFormatter(formato)
+        logger.addHandler(archivo_handler)
 
-        # Manejador de consola
-        console_handler = logging.StreamHandler()
-        console_handler.setLevel(nivel)
-        console_handler.setFormatter(formato)
-        logger.addHandler(console_handler)
+        # Muestra en consola
+        consola_handler = logging.StreamHandler()
+        consola_handler.setLevel(logging.INFO)
+        consola_handler.setFormatter(formato)
+        logger.addHandler(consola_handler)
 
     return logger
 
 
-# Instancia por defecto lista para su uso en toda la solución
+# Logger listo para importar en otros módulos
 logger_sistema = configurar_logger()
