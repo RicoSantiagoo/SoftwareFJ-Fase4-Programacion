@@ -3,7 +3,9 @@
 **Curso:** Programación (Código: 213023)  
 **Grupo:** Colaborativo  
 **Fase:** Fase 4 - Componente Práctico (Prácticas Simuladas)  
-**Estudiante:** Santiago Rico Hernández  
+**Integrantes vinculados:**  
+* Santiago Rico Hernández (Líder de Repositorio / Compilador)  
+* Yojhan Estiven Castaño Santa (Módulo 4: Reservas)  
 
 ---
 
@@ -58,7 +60,7 @@ cd SoftwareFJ-Fase4-Programacion
 
 ### Paso 2: Crear su rama de trabajo (No modificar 'main' directamente)
 Según el módulo que les tocó, ejecuten el comando correspondiente para crear su rama:
-* **Si eres Yojhan (Módulo 4 - Reservas):**
+* **Si vas hacer el Módulo 4 (Reservas):**
   ```bash
   git checkout -b feature/gestion-reservas
   ```
@@ -81,8 +83,6 @@ Para mantener el proyecto ordenado, cada módulo va en una carpeta específica:
 * **Módulo 4 (Yojhan):** Creas el archivo en `src/models/reserva.py`.
 * **Módulo 5:** Creas el archivo en `src/services/sistema_gestion.py`.
 * **Módulo 6:** Trabajas sobre `main.py` y creas tus pruebas en `tests/`.
-
-*(💡 **Tip:** Pueden abrir y guiarse con `src/models/cliente.py` que ya está terminado como ejemplo de cómo usar `@property` y las excepciones).*
 
 ### Paso 4: Guardar y subir sus cambios
 Cuando terminen de escribir o probar su código, ejecutan estos 3 comandos en su terminal:
