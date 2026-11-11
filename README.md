@@ -27,7 +27,7 @@ Para organizar el trabajo colaborativo de los 5 integrantes, dividí el proyecto
 | :--- | :--- | :--- | :---: |
 | **Módulo 1 y 2** | Arquitectura base, excepciones personalizadas y clase Cliente con validaciones. | Santiago Rico Hernández | **Listo** |
 | **Módulo 3** | Clase abstracta Servicio y servicios derivados (ReservaSala, AlquilerEquipo, AsesoriaEspecializada) con polimorfismo. | *Pendiente compañero 2* | Por hacer |
-| **Módulo 4** | Clase Reserva con estados (creada, confirmada, cancelada) y control de excepciones. | *Pendiente compañero 3* | Por hacer |
+| **Módulo 4** | Clase Reserva con estados (creada, confirmada, cancelada) y control de excepciones. | Yojhan Estiven Castaño Santa | **En desarrollo** |
 | **Módulo 5** | Fachada/orquestador del sistema en memoria con listas nativas (`SistemaGestionFJ`). | *Pendiente compañero 4* | Por hacer |
 | **Módulo 6** | Pruebas unitarias completas y batería de simulaciones en `main.py`. | *Pendiente compañero 5* | Por hacer |
 
