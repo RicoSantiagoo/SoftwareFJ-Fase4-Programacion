@@ -6,6 +6,7 @@
 **Integrantes vinculados:**  
 * Santiago Rico Hernández (Líder de Repositorio / Compilador)  
 * Yojhan Estiven Castaño Santa (Módulo 4: Reservas)  
+* Andrés Nieves (Módulo 3: Servicios)  
 
 ---
 
@@ -28,10 +29,10 @@ Para organizar el trabajo colaborativo de los 5 integrantes, dividí el proyecto
 | Módulo | Descripción | Responsable | Estado |
 | :--- | :--- | :--- | :---: |
 | **Módulo 1 y 2** | Arquitectura base, excepciones personalizadas y clase Cliente con validaciones. | Santiago Rico Hernández | **Listo** |
-| **Módulo 3** | Clase abstracta Servicio y servicios derivados (ReservaSala, AlquilerEquipo, AsesoriaEspecializada) con polimorfismo. | *Pendiente compañero 2* | Por hacer |
-| **Módulo 4** | Clase Reserva con estados (creada, confirmada, cancelada) y control de excepciones. | Yojhan Estiven Castaño Santa | **En desarrollo** |
-| **Módulo 5** | Fachada/orquestador del sistema en memoria con listas nativas (`SistemaGestionFJ`). | *Pendiente compañero 4* | Por hacer |
-| **Módulo 6** | Pruebas unitarias completas y batería de simulaciones en `main.py`. | *Pendiente compañero 5* | Por hacer |
+| **Módulo 3** | Clase abstracta Servicio y servicios derivados (ReservaSala, AlquilerEquipo, AsesoriaEspecializada) con polimorfismo. | Andrés Nieves | **Asignado** |
+| **Módulo 4** | Clase Reserva con estados (creada, confirmada, cancelada) y control de excepciones. | Yojhan Estiven Castaño Santa | **Listo (En main)** |
+| **Módulo 5** | Fachada/orquestador del sistema en memoria con listas nativas (`SistemaGestionFJ`). | *Por definir* | Pendiente |
+| **Módulo 6** | Pruebas unitarias completas y batería de simulaciones en `main.py`. | *Por definir* | Pendiente |
 
 ---
 
