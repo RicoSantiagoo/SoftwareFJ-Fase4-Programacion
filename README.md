@@ -29,7 +29,7 @@ Para organizar el trabajo colaborativo, distribuimos los componentes del sistema
 | Módulo | Descripción | Responsable | Estado |
 | :--- | :--- | :--- | :---: |
 | **Módulos 1 y 2** | Arquitectura base, excepciones personalizadas y clase Cliente con validaciones regex. | Santiago Rico Hernández | **Listo (En main)** |
-| **Módulo 3** | Clase abstracta Servicio y servicios derivados (ReservaSala, AlquilerEquipo, AsesoriaEspecializada) con polimorfismo. | Andrés Felipe Nieves León | **Listo (PR #6)** |
+| **Módulo 3** | Clase abstracta Servicio y servicios derivados (ReservaSala, AlquilerEquipo, AsesoriaEspecializada) con polimorfismo. | Andrés Felipe Nieves León | **Listo** |
 | **Módulo 4** | Clase Reserva con estados (creada, confirmada, cancelada) y control de excepciones. | Yojhan Estiven Castaño Santa | **Listo (En main)** |
 | **Módulo 5** | Fachada/orquestador del sistema en memoria con listas nativas (`SistemaGestionFJ`). | Santiago Rico Hernández | **Listo (En main)** |
 | **Módulo 6** | Batería global de 33 pruebas unitarias automatizadas y simulaciones QA. | Santiago Rico Hernández | **Listo (33/33 OK)** |
