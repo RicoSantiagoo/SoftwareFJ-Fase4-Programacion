@@ -6,7 +6,7 @@
 **Integrantes vinculados:**  
 * Santiago Rico Hernández (Líder de Repositorio / Compilador)  
 * Yojhan Estiven Castaño Santa (Módulo 4: Reservas)  
-* Andrés Nieves (Módulo 3: Servicios)  
+* Andrés Felipe Nieves León (Módulo 3: Servicios)  
 
 ---
 
@@ -24,15 +24,15 @@ La guía del curso indica que **no debemos usar bases de datos** (ni SQL ni NoSQ
 
 ## Reparto de módulos del grupo
 
-Para organizar el trabajo colaborativo de los 5 integrantes, dividí el proyecto en los siguientes componentes:
+Para organizar el trabajo colaborativo, distribuimos los componentes del sistema entre los integrantes activos:
 
 | Módulo | Descripción | Responsable | Estado |
 | :--- | :--- | :--- | :---: |
-| **Módulo 1 y 2** | Arquitectura base, excepciones personalizadas y clase Cliente con validaciones. | Santiago Rico Hernández | **Listo** |
-| **Módulo 3** | Clase abstracta Servicio y servicios derivados (ReservaSala, AlquilerEquipo, AsesoriaEspecializada) con polimorfismo. | Andrés Nieves | **Asignado** |
-| **Módulo 4** | Clase Reserva con estados (creada, confirmada, cancelada) y control de excepciones. | Yojhan Estiven Castaño Santa | **Listo** |
-| **Módulo 5** | Fachada/orquestador del sistema en memoria con listas nativas (`SistemaGestionFJ`). | *Por definir* | Pendiente |
-| **Módulo 6** | Pruebas unitarias completas y batería de simulaciones en `main.py`. | *Por definir* | Pendiente |
+| **Módulos 1 y 2** | Arquitectura base, excepciones personalizadas y clase Cliente con validaciones regex. | Santiago Rico Hernández | **Listo (En main)** |
+| **Módulo 3** | Clase abstracta Servicio y servicios derivados (ReservaSala, AlquilerEquipo, AsesoriaEspecializada) con polimorfismo. | Andrés Felipe Nieves León | **Listo (PR #6)** |
+| **Módulo 4** | Clase Reserva con estados (creada, confirmada, cancelada) y control de excepciones. | Yojhan Estiven Castaño Santa | **Listo (En main)** |
+| **Módulo 5** | Fachada/orquestador del sistema en memoria con listas nativas (`SistemaGestionFJ`). | Santiago Rico Hernández | **Listo (En main)** |
+| **Módulo 6** | Batería global de 33 pruebas unitarias automatizadas y simulaciones QA. | Santiago Rico Hernández | **Listo (33/33 OK)** |
 
 ---
 
